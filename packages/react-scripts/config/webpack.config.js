@@ -571,6 +571,7 @@ module.exports = function(webpackEnv) {
           {
             inject: true,
             template: paths.appHtml,
+            backendUrl: process.env.BACKEND_URL || '',
           },
           isEnvProduction
             ? {
@@ -671,6 +672,7 @@ module.exports = function(webpackEnv) {
             // a route with query params (e.g. auth callbacks).
             new RegExp('/[^/?]+\\.[^/]+$'),
           ],
+          skipWaiting: true,
         }),
       // TypeScript type checking
       useTypeScript &&
